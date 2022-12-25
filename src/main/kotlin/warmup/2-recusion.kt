@@ -71,8 +71,8 @@ fun binarySearchLoop(a: Array<Int>, k: Int, l1: Int, r1: Int): Int{
  */
 
 fun findMax(a: Array<Int>, l: Int, r: Int): Int{
-    var m = l + (r-l + 1)/2
-    var x = a[m]
+    val m = l + (r-l + 1)/2
+    val x = a[m]
     // println("[$l, $r] => a[$m]=$x")
     // terminal condition
     return if((m == r && x > a[m-1])|| (x > a[m+1] && x > a[m-1])) {
@@ -109,7 +109,7 @@ fun findMax(a: Array<Int>, l: Int, r: Int): Int{
  */
 fun findFirst(a:Array<Int>, v: Int, l:Int, r:Int): Int{
     if(l > r) return -1
-    var m = l + (r - l)/2
+    val m = l + (r - l)/2
     println("[$l, $r] => a[$m]=${a[m]}")
 
     return if((m==0 || a[m-1] < v) && a[m]==v)
@@ -136,7 +136,7 @@ fun findFirst(a:Array<Int>, v: Int, l:Int, r:Int): Int{
 fun findLast(a:Array<Int>, v: Int, l:Int, r:Int): Int {
 
     if(l > r) return -1
-    var m = l + (r-l)/2
+    val m = l + (r-l)/2
 
     println("[$l, $r] => a[$m]=${a[m]}")
 
@@ -163,7 +163,7 @@ fun findFirstLast(a:Array<Int>, v: Int): Array<Int>{
 
 /**
  * Find min value in a rotated array
- * array is rotated by k
+ * Array is rotated by k
  * - [n-k, n-1] items increase
  * - [0, n-k-1] values increase
  * - x[n-k-1]>x[0]>x[n-1]>x[n-k]
@@ -175,7 +175,93 @@ fun findFirstLast(a:Array<Int>, v: Int): Array<Int>{
  * {8,7}=> 7
  */
 
-fun minInRotatedArray(a: Array<Int>): Int{
+/**
+ * a[l] is always greater than a[r] if array is rotated
+ *
+ * l < r
+ * 1) a[l] < a[r] ->a[l]
+ * 2) a[m] > a[r] -> find(m+1, r)
+ * 3) a[m] < a[r] -> find(l,m)
+ *
+ * space O(1), time O(log n)
+ */
+fun minInRotatedArray(a: Array<Int>, l1: Int, r1: Int): Int{
+    var l = l1
+    var r = r1
+    while(l < r){
+        if(a[l]< a[r]) return a[l]
+        val m = l + (r -l)/2
 
-    return 1
+        if(a[m] > a[r]) l=m+1 else r=m
+    }
+    return a[l]
 }
+
+/**
+ * Search a key in a sorted 2D [m x n] matrix
+ *
+ * examples:
+ * 1) find 6 => true
+ *   1, 2, 6, 7
+ *  12,13,16,21
+ *  23,35,36,48
+ *
+ * 2) find 7 => false
+ *
+ *  1, 2, 6
+ * 12,13,16
+ * 23,35,36
+ *
+ */
+
+fun findInRow(a: Array<Array<Int>>, y:Int, r1:Int, k: Int): Boolean{
+    var l = 0
+    var r = r1
+
+    while(l < r){
+        val m = l + (r -l)/2
+        println("col $m")
+        if(a[y][m] == k) {
+            println("found")
+            return true
+        } else if(a[y][m] > k) {
+            r = m - 1
+            println("move col r=> $r")
+        } else {
+            l = m
+            println("move col l=> $l")
+        }
+    }
+
+    return false
+}
+
+/**
+ * find k in which row, then search that row with b search.
+ * m = l + (r-l)/2
+ * 1) a[l][0] < k && a[l][n-1] > k => findInRow()
+ *
+ *
+ * 2) a[l][0]
+ */
+fun findInMatrix(a: Array<Array<Int>>,y:Int, x:Int, k: Int): Boolean {
+    var l = 0
+    var r = y - 1
+
+    while(l <= r) {
+        val m = l + (r-l)/2
+        println("row $m")
+        if(a[m][0] < k && a[m][x-1] >= k){
+            return findInRow(a, m,  x, k)
+        } else if(a[m][0] > k ){
+            r = m - 1
+            println("move row r=> $r")
+        } else {
+            l = m + 1
+            println("move row l=> $l")
+        }
+    }
+
+    return false
+}
+

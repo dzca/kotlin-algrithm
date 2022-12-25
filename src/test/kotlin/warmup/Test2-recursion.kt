@@ -2,6 +2,7 @@ package warmup
 
 import org.junit.jupiter.api.Test
 import kotlin.test.assertContentEquals
+import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
 /**
@@ -54,10 +55,22 @@ class TestM4 {
         val a2 = arrayOf(8,9,3,4,5,6,7)
         val a3 = arrayOf(5,6,7,8,9)
         val a4 = arrayOf(8,7)
+        val a5 = arrayOf(3)
 
-        assertTrue { minInRotatedArray(a1) == 1 }
-        assertTrue { minInRotatedArray(a2) == 3 }
-        assertTrue { minInRotatedArray(a3) == 5 }
-        assertTrue { minInRotatedArray(a4) == 7 }
+        assertTrue { minInRotatedArray(a1, 0, 8) == 1 }
+        assertTrue { minInRotatedArray(a2, 0,6) == 3 }
+        assertTrue { minInRotatedArray(a3, 0, 4) == 5 }
+        assertTrue { minInRotatedArray(a4, 0, 1) == 7 }
+        assertTrue { minInRotatedArray(a5, 0, 0) == 3 }
+    }
+
+    @Test
+    fun `findInMatrix`(){
+
+        val a1 = arrayOf(arrayOf(1,2,6,7), arrayOf(12,13,16,21), arrayOf(23,35,36,48))
+        val a2 = arrayOf(arrayOf(1,2,6), arrayOf(12,13,16), arrayOf(23,35,36))
+
+        assertTrue { findInMatrix(a1, 3,4, 6) }
+        assertFalse { findInMatrix(a2, 3,3,7) }
     }
 }
