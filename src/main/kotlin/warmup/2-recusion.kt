@@ -1,7 +1,7 @@
 package warmup
 
 /**
- * Module 4 is mainly about recursion
+ * Module 4 is recursion
  */
 
 /**
@@ -265,3 +265,19 @@ fun findInMatrix(a: Array<Array<Int>>,y:Int, x:Int, k: Int): Boolean {
     return false
 }
 
+/**
+ * Median of two sorted arrays
+ * Merge two array to size x+y=n and find the median
+ *
+ * median:
+ *  - if n is odd, mid = middle element
+ *  - if n is even, mid = average of two middle elements
+ * example:
+ * A=(1,3,6) B=(2,8,12) => x = 4.5
+ * A=(1,3,4,6,9) B=(2,5,7,8,10) => x = 5.5
+ */
+
+fun medianOfArrays(a: Array<Int>, b:Array<Int>): Float {
+
+    return 5.5F
+}
