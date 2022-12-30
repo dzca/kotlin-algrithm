@@ -126,3 +126,57 @@ fun mergeSort(a: List<Int>): List<Int> {
     val ar = mergeSort(a.subList(m, a.size))
     return merge(al, ar)
 }
+
+fun quickSortList(a: List<Int>): List<Int> {
+
+    if(a.size < 2) return a
+    //val m = a.size shr 1
+    val m = a.size - 1
+     println("quickSortList in: a[m]=${a[m]}, a = ${a}")
+
+    val l = a.filter { it -> it < a[m] }
+    val r = a.filter { it -> it > a[m]}
+    val e = a.filter { it -> it == a[m] }
+
+    val x = quickSortList(l) + e + quickSortList(r)
+
+    //println("quickSortList out: x= ${x}")
+    return x
+}
+
+fun swap(a: Array<Int>, i: Int, j:Int){
+    val t = a[i]
+    a[i] = a[j]
+    a[j] = t
+}
+
+/**
+ * return the index of the pivot value, after the balance
+ */
+fun partition(a: Array<Int>, l: Int, r:Int): Int{
+    val p = a[r]
+    // println("pivot: p=${p}")
+    var j = l - 1 // point to last swap-ed value
+
+    for(i in l until r){
+        // if iterator < pivot, swap a[j] with item next to last swapped
+        if(a[i] < p){
+            j++
+            swap(a, i, j)
+        }
+    }
+    // println("before last swap: j=$j, a=${a.contentToString()}")
+    // swap pivot and first item bigger than pivot
+    swap(a, ++j, r)
+
+    // println("balanced: a=${a.contentToString()}")
+    return j
+}
+
+fun quickSort(a: Array<Int>, l: Int, r:Int){
+    if(l < r){
+        val p = partition(a, l, r)
+        quickSort(a, l, p-1)
+        quickSort(a, p+1, r)
+    }
+}
