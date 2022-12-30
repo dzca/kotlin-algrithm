@@ -152,6 +152,8 @@ fun swap(a: Array<Int>, i: Int, j:Int){
 
 /**
  * return the index of the pivot value, after the balance
+ *
+ * c(time) = O(n) c(space) = O(1)
  */
 fun partition(a: Array<Int>, l: Int, r:Int): Int{
     val p = a[r]
@@ -173,6 +175,20 @@ fun partition(a: Array<Int>, l: Int, r:Int): Int{
     return j
 }
 
+/**
+ * time = divide + conquer + combine
+ *
+ * conquer:
+ * left = T(i) range:[0..i]
+ * right = T(n-i-1) range: [i+1..n-1]
+ *
+ * if n=1, T(n) = c
+ * if n>1, T(n) = T(i) + T(n-i-1) + cn
+ *
+ * Total time method 2:
+ * if array size is n, and we swap in every pivot
+ * t = cn + c(n-1)...+ 2c + c = c(n*(n+1)/2) = O(n^2)
+ */
 fun quickSort(a: Array<Int>, l: Int, r:Int){
     if(l < r){
         val p = partition(a, l, r)
