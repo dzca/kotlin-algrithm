@@ -60,4 +60,20 @@ class TestM5{
         quickSort(a, 0, 5)
         assertContentEquals(r, a)
     }
+
+    @Test
+    fun `countSort`(){
+        val a1 = arrayOf(24,2,14,5,9,12)
+        val a2 = arrayOf(1,4,1,2,7,5,2,7)
+        val a3 = arrayOf(2,5,3,0,2,3,0,3)
+
+
+        val r1 = arrayOf(2,5,9,12,14,24)
+        val r2 = arrayOf(1,1,2,2,4,5,7,7)
+        val r3 = arrayOf(0, 0, 2, 2, 3, 3, 3, 5)
+
+        assertContentEquals(r1, countSort(a1, 25))
+        assertContentEquals(r2, countSort(a2, 8))
+        assertContentEquals(r3, countSort(a3, 6   ))
+    }
 }

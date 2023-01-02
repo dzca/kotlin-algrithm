@@ -37,7 +37,7 @@ https://www.enjoyalgorithms.com/
 - Arrays.toString(a1)
 - a.reversedArray()
 - a += item
-- val numbersFromOne = IntArray(size)
+- val b = IntArray(size), Array<Int>: b.toTypedArray()
 
 ### list 
 - list.size

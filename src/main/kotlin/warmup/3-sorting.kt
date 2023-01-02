@@ -10,6 +10,9 @@ Bubble Sort — Stable
 Merge Sort — Stable
 Shell Sort — Unstable
 Timsort — Stable
+
+ bubble, selection, insertion =O(n^2)
+ merge, quick, heap =O(nlogn)
  */
 
 /**
@@ -19,10 +22,11 @@ Timsort — Stable
 fun bubble(a: Array<Int>) : Array<Int>{
     val n = a.size - 1
 
+    var t:Int
     for(i in 0..n-1){
         for(j in i..n-1){
             if(a[j] > a[j+1]){
-                var t = a[j]
+                t = a[j]
                 a[j] = a[j+1]
                 a[j+1] = t
             }
@@ -40,6 +44,7 @@ fun selectionSort(a: Array<Int>) : Array<Int>{
     val n = a.size - 1
 
     var s: Int  // index of min value
+    var t: Int
     for(i in 0 .. n){
         s = i
         // find minimal v
@@ -49,7 +54,7 @@ fun selectionSort(a: Array<Int>) : Array<Int>{
             }
         }
         // swap
-        var t = a[i]
+        t = a[i]
         a[i] = a[s]
         a[s] = t
     }
@@ -65,7 +70,7 @@ fun insertionSort(a: Array<Int>) : Array<Int>{
     val n = a.size - 1
 
     for(i in 1 .. n){
-        var v = a[i]
+        val v = a[i]
         var j = i
 
         println("set v=a[$i]=${a[i]}, array = ${Arrays.toString(a)}")
@@ -90,7 +95,7 @@ fun merge(la: List<Int>, ra: List<Int>): List<Int> {
     var i = 0
     var j = 0
 
-    var r = mutableListOf<Int>()
+    val r = mutableListOf<Int>()
 
     while(i<la.count() && j<ra.count()){
         if(la[i] < ra[j]){
@@ -195,4 +200,38 @@ fun quickSort(a: Array<Int>, l: Int, r:Int){
         quickSort(a, l, p-1)
         quickSort(a, p+1, r)
     }
+}
+
+/**
+ * k is the (number of hash keys) = max + 1
+ */
+fun countSort(a: Array<Int>, k: Int): Array<Int>{
+    // [1, 4, 1, 2, 7, 5, 2, 7]
+    val c = IntArray(k) { _ -> 0 }
+
+    for(i in a){
+        c[i] += 1
+    }
+
+    // c=[0, 2, 2, 0, 1, 1, 0, 2], k = 8
+    println("step1: array c=${Arrays.toString(c)}")
+
+    for(j in 1..k -1){
+        c[j] += c[j-1]
+    }
+    // c = [0,2,4,4,5,6,6,8]
+    println("step2: array c=${Arrays.toString(c)}")
+
+    val b = IntArray(a.size){ _ -> 0 }
+    var v :Int
+    // place items from a into b, backwards
+    for(i in a.size - 1 downTo 0){
+        v = a[i]
+        b[c[v] - 1] = v
+        c[v] -= 1
+    }
+
+    println("step3: c=${Arrays.toString(c)}")
+    println("step3: b=${Arrays.toString(b)}")
+    return b.toTypedArray()
 }
