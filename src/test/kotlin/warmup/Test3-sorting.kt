@@ -76,4 +76,20 @@ class TestM5{
         assertContentEquals(r2, countSort(a2, 8))
         assertContentEquals(r3, countSort(a3, 6   ))
     }
+
+    @Test
+    fun `sort_0_1_2`(){
+        val a1 = arrayOf(0,2,1,0,1,2,1,0)
+        val a2 = arrayOf(0,1,1,0,1,2,1,2,0,0)
+        val a3 = arrayOf(2,0,1)
+
+
+        val r1 = arrayOf(0,0,0,1,1,1,2,2)
+        val r2 = arrayOf(0,0,0,0,1,1,1,1,2,2)
+        val r3 = arrayOf(0,1,2)
+
+        assertContentEquals(r1, sort_0_1_2(a1))
+        assertContentEquals(r2, sort_0_1_2(a2))
+        assertContentEquals(r3, sort_0_1_2(a3))
+    }
 }

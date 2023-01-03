@@ -235,3 +235,36 @@ fun countSort(a: Array<Int>, k: Int): Array<Int>{
     println("step3: b=${Arrays.toString(b)}")
     return b.toTypedArray()
 }
+
+/**
+ * sort an array with 0s,1s,2s.
+ *
+ * Example:
+ * a = {0,2,1,0,1,2,1,0} => {0,0,0,1,1,1,2,2}
+ * a = {0,1,1,0,1,2,1,2,0,0} => {0,0,0,0,1,1,1,1,2,2}
+ * a = {2,0,1} -> {0,1,2}
+ *
+ * 1 - count and write, T(time)=O(n), T(space) = O(1)
+ * 2 - three way partition
+ */
+
+fun sort_0_1_2(a: Array<Int>): Array<Int>{
+    var l = 0
+    var m = 0
+    var h = a.size - 1
+
+    while( m <= h){
+        if(a[m] == 0){
+            swap(a, m, l)
+            m++
+            l++
+        } else if(a[m] == 1){
+            m++
+        } else {
+            swap(a, m, h)
+            h--
+        }
+    }
+
+    return a
+}
