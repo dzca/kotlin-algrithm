@@ -268,3 +268,23 @@ fun sort_0_1_2(a: Array<Int>): Array<Int>{
 
     return a
 }
+
+/**
+ * wave array
+ *
+ * a(0) >= a(1) <= a(2) >= a(3) <=...
+ *
+ * example:
+ * a={1,2,3,4} -> {2,1,4,3} or {4,1,3,2}
+ * a={20,8,10,6,4,2} -> {20,8,10,4,6,2}
+ *
+ * - way 1: sort and swap every 2 value
+ * T(time) = O(log n) T(space) = O(n)
+ *
+ * - way 2: for even number i, (a[i-1], a[i], a[i+1]) that a[i-1] > a[i] < a[i+1]
+ */
+
+fun waveArray(a: Array<Int>): Array<Int>{
+
+    return a
+}
