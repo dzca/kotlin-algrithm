@@ -38,6 +38,7 @@ https://www.enjoyalgorithms.com/
 - a.reversedArray()
 - a += item
 - val b = IntArray(size), Array<Int>: b.toTypedArray()
+- a.copyOfRange(0, i+1) copy sub array exclusive [0, n] 
 
 ### list 
 - list.size
