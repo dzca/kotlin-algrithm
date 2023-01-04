@@ -2,6 +2,7 @@ package warmup
 
 import org.junit.jupiter.api.Test
 import kotlin.test.assertContentEquals
+import kotlin.test.assertEquals
 
 /**
  * questions from https://www.enjoyalgorithms.com/data-structures-and-algorithms-course/
@@ -30,5 +31,14 @@ class M6{
 
         assertContentEquals(r1, removeDuplicates(a1))
         assertContentEquals(r2, removeDuplicates(a2))
+    }
+
+    @Test
+    fun `maxArea`(){
+        val a1 = intArrayOf(1,8,6,2,5,4,8,3,7)
+        val a2 = intArrayOf(1,1)
+
+        assertEquals(49, maxArea(a1))
+        assertEquals(1, maxArea(a2))
     }
 }

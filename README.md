@@ -37,8 +37,10 @@ https://www.enjoyalgorithms.com/
 - Arrays.toString(a1)
 - a.reversedArray()
 - a += item
+- val b = intArrayOf(42,2,21) init by value
 - val b = IntArray(size), Array<Int>: b.toTypedArray()
 - a.copyOfRange(0, i+1) copy sub array exclusive [0, n] 
+- IntArray is int[], Array<Int> is Integer[]
 
 ### list 
 - list.size

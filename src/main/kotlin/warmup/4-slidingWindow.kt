@@ -66,3 +66,53 @@ fun removeDuplicates(a: Array<Int>): Array<Int> {
 
     return a.copyOfRange(0, i+1)
 }
+
+/**
+ * container with most water
+ *
+ * given array a[n] where a[i] is height of a bar. find sub array
+ * that holds most water
+ *
+ * - n >= 2
+ * - f(n) = max[(j-i) * min(a[i]...a[j])]
+ *
+ * example:
+ *
+ * a={1,5,6,3,4,2} => 12
+ *
+ * line [5,6,3,4] d=4, min height = 3
+ */
+
+fun max(a:Int, b: Int): Int{
+    return if(a >= b) a else b
+}
+fun min(a:Int, b: Int): Int{
+    return if(a <= b) a else b
+}
+/**
+ * set i=0, j = n-1
+ *
+ * if h(i) < h(j), height = h(i) =>  a(i, j) > a(i, j-1), so i++
+ * if h(i) > h(j), height = h(j) => a(i, j) > a(i+1, j), so j--
+ *
+ * T(time) = O(n), T(space) = O(1)
+ */
+fun maxArea(a: IntArray): Int {
+
+    var n = a.size
+    var i = 0
+    var j = n-1
+
+    var m = 0
+    while(i<j){
+        var area = (j-i) * min(a[i], a[j])
+        println("area =($j -$i) * min(${a[i]}, ${a[j]}) = $area")
+        m = max(area, m)
+        if(a[i] < a[j]){
+            i++
+        } else {
+            j--
+        }
+    }
+    return m
+}
