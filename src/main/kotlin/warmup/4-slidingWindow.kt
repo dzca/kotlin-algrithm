@@ -44,13 +44,25 @@ fun moveZerosEnd(a: Array<Int>): Array<Int>{
 }
 
 /**
- * remove duplicates from array
+ * remove duplicates from sorted array
  *
  * example:
  *
- * a = {1,2,2,2,3,2,3,3} => {1,2,3}
+ * a = {1,2,2,2,3,3,3} => {1,2,3}
  * a = {1,1,2,2,3,3,4,4,5,5} => {1,2,3,4,5}
  */
 fun removeDuplicates(a: Array<Int>): Array<Int> {
-    return a
+    val n = a.size
+    if(n <= 1) return a
+
+    var i = 0
+
+    for(j in 1.. n-1){
+        if(a[i] != a[j]){
+            i++
+            a[i] = a[j]
+        }
+    }
+
+    return a.copyOfRange(0, i+1)
 }

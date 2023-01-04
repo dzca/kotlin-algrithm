@@ -22,7 +22,7 @@ class M6{
 
     @Test
     fun `removeDuplicates`(){
-        val a1 = arrayOf(1,2,2,2,3,2,3,3)
+        val a1 = arrayOf(1,2,2,2,3,3,3)
         val a2 = arrayOf(1,1,2,2,3,3,4,4,5,5)
 
         val r1 = arrayOf(1,2,3)
