@@ -41,4 +41,33 @@ class M6{
         assertEquals(49, maxArea(a1))
         assertEquals(1, maxArea(a2))
     }
+
+    @Test
+    fun `trapWater`(){
+        val a1 = intArrayOf(0,1,0,2,1,0,3,2,1,2,1)
+        val a2 = intArrayOf(0,1,0,2,1,0,1,2,1,2,1)
+        assertEquals(5, trapWater1(a1))
+        assertEquals(6, trapWater1(a2))
+
+        assertEquals(5, trapWater2(a1))
+        assertEquals(6, trapWater2(a2))
+
+        assertEquals(5, trapWater2(a1))
+        assertEquals(6, trapWater3(a2))
+    }
+
+    @Test
+    fun `longestSubstring`(){
+        val s1 = "abcbbcab"
+        val s2= "bbbbb"
+        val s3 = "c"
+
+        assertEquals(3, longestSubstring1(s1, 256))
+        assertEquals(1, longestSubstring1(s2, 256))
+        assertEquals(1, longestSubstring1(s3, 256))
+
+        assertEquals(3, longestSubstring2(s1, 256))
+        assertEquals(1, longestSubstring2(s2, 256))
+        assertEquals(1, longestSubstring2(s3, 256))
+    }
 }

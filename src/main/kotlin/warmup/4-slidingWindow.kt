@@ -1,6 +1,7 @@
 package warmup
 
 import java.util.*
+import kotlin.collections.ArrayDeque
 
 /**
  * Module 6 is  2 pointers and sliding window problems
@@ -115,4 +116,159 @@ fun maxArea(a: IntArray): Int {
         }
     }
     return m
+}
+
+/**
+ * Trap water problem
+ *
+ * given an array represent building heights and each building width is one.
+ * compute how much water the array can hold
+ *
+ * example:
+ * a = {0,1,0,2,1,0,1,2,1,2,1} => 6
+ *
+ * water at i: f(i) = min(lm, rm) - a[i]
+ */
+
+fun trapWater1(a: IntArray): Int{
+    val n = a.size
+
+    var w = 0
+    for(i in 0..n-1){
+        var lm = 0
+        for(j in i downTo 0){
+            lm = max(a[j], lm)
+        }
+
+        var rm = 0
+        for(j in i .. n-1){
+            rm = max(a[j], rm)
+        }
+
+        var k = min(rm, lm) - a[i]
+
+        println("current water a[$i] = $k")
+        w += k
+    }
+
+    return w
+}
+
+/**
+ * create boundary in array before compute
+ */
+fun trapWater2(a: IntArray): Int {
+    val n = a.size
+
+    var lma = IntArray(n)
+    var rma = IntArray(n)
+
+    lma[0] = a[0]
+    for(i in 1..n-1){
+        lma[i] = max(lma[i-1], a[i])
+    }
+
+    rma[n-1] = a[n-1]
+    for(i in n-2 downTo 0){
+        rma[i] = max(rma[i+1], a[i])
+    }
+
+    var w = 0
+    for(i in 0..n-1){
+        w = w + min(lma[i], rma[i]) - a[i]
+    }
+
+    return w
+}
+
+/**
+ * By stack
+ */
+fun trapWater3(a: IntArray): Int {
+    val n = a.size
+    var i = 0
+    var w = 0
+    var m: Int
+    val s = ArrayDeque<Int>()
+    while(i < n){
+        while(s.isNotEmpty() && a[i] > a[s.last()]){
+            m = s.removeLast()
+            println("pop($m)")
+            if(s.isEmpty()) break
+
+            var l = i - s.last() - 1
+            var h = min(a[i], a[s.last()])-a[m]
+
+            println("i=$i, dw =$l * $h, last=${s.last()}")
+            w += l * h
+        }
+        s.addLast(i)
+        i++
+        println("s = ${s.toString()}")
+    }
+    return w
+}
+
+/**
+ * two pointer approach
+ */
+fun trapWater4(a: IntArray): Int {
+
+    return 1
+}
+
+/**
+ * find the longest substring without repeat
+ *
+ * s= "abcbbcab" -> 3
+ * s= "bbbbb" -> 1
+ */
+
+fun longestSubstring1(s: String, n: Int) :Int{
+    var r = 0
+    var i = 0
+
+    while (i < s.length){
+        var a = BooleanArray(n){ false }
+        var j = i
+
+        while(j < s.length && !a[s[j].code]){
+            // why not r++? because we cannot reset r in outer while loop
+            a[s[j].code] = true
+            j+=1
+            r = max(r, j-i)
+        }
+        println("s[$i]=${s[i]}, s[$j-1]=${s[j-1]}, r=$r")
+        // found repeat
+        a[s[i].code] = false
+        i+=1
+    }
+
+    return r
+}
+
+/**
+ * n - size of the lookup table
+ */
+fun longestSubstring2(s: String, n: Int) :Int{
+    var x = 0 // substring size
+    var l = 0 // left index
+    var r = 0 // right index
+
+    var a = BooleanArray(n){false}
+
+    if(s.length == 0) return 0
+
+    while(l < s.length && r < s.length){
+        if(a[s[r].code] == false){
+            a[s[r].code] = true
+            r+=1
+            x=max(x, r-l)
+        } else {
+            a[s[l].code] = false
+            l+=1
+        }
+    }
+
+    return x
 }

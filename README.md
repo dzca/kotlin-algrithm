@@ -41,6 +41,12 @@ https://www.enjoyalgorithms.com/
 - val b = IntArray(size), Array<Int>: b.toTypedArray()
 - a.copyOfRange(0, i+1) copy sub array exclusive [0, n] 
 - IntArray is int[], Array<Int> is Integer[]
+- val c = IntArray(k) { _ -> 0 }
+
+### stack
+- val stack = ArrayDeque(listOf(1, 2, 3)) // stack: [1, 2, 3]
+- stack.addLast(0)                        // stack: [1, 2, 3, 0]         (push)
+- val value = stack.removeLast()          // value: 0, stack: [1, 2, 3]  (pop)
 
 ### list 
 - list.size
