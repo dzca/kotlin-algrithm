@@ -57,5 +57,6 @@ https://www.enjoyalgorithms.com/
 - list.add(item)
 - val numbers = mutableListOf(38,27,43,3,9,82,10)
 - val a = listOf('1', '2', '3')
+
 ### string
 - s.foreach {x -> }
