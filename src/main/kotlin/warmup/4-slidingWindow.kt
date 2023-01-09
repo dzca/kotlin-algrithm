@@ -272,3 +272,45 @@ fun longestSubstring2(s: String, n: Int) :Int{
 
     return x
 }
+
+/**
+ * Q6: Distinct elements in window
+ *
+ * given an array a[] of size n and window size k, count distinct elements in
+ * every k sized window.
+ *
+ * a = {1,1,1,3,4,2,3} k=4 => [2,3,4,3]
+ *
+ * 1.[1,1,1,3] distinct = 2
+ * 2.[1,1,3,4] distinct = 3
+ * 3.[1,3,4,2] distinct = 4
+ * 4.[3,4,2,3] distinct = 2
+ */
+
+fun windowK1(a: IntArray, k:Int): IntArray{
+    val n = a.size
+    val r = IntArray(n-k+1)
+    for(i in 0..n-k){
+        var t = 0
+
+        for(j in i.. (i+k-1)){
+            t+=1
+            // check if a[j] repeated
+            for(x in j-1 downTo i){
+                if(a[j] == a[x]) {
+                    t -= 1
+                    // one repeat only
+                    break
+                }
+            }
+        }
+        r[i] = t
+    }
+
+    return r
+}
+
+fun windowK2(a: IntArray, k:Int): IntArray{
+
+    return a
+}

@@ -70,4 +70,15 @@ class M6{
         assertEquals(1, longestSubstring2(s2, 256))
         assertEquals(1, longestSubstring2(s3, 256))
     }
+
+    @Test
+    fun `windowK`(){
+        val a1 = intArrayOf(1,1,1,3,4,2,3)
+        val a2 = intArrayOf(1,2,4,4,2)
+
+        val r1 = intArrayOf(2,3,4,3)
+        val r2 = intArrayOf(3,2,2)
+        assertContentEquals(r1, windowK1(a1, 4))
+        assertContentEquals(r2, windowK1(a2, 3))
+    }
 }
