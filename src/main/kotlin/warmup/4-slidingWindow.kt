@@ -310,7 +310,71 @@ fun windowK1(a: IntArray, k:Int): IntArray{
     return r
 }
 
+/**
+ * use hash set
+ *
+ * f(time) = k * O(n)
+ * f(space) = k
+ */
 fun windowK2(a: IntArray, k:Int): IntArray{
+    val n = a.size
+    val r = IntArray(n-k+1)
 
-    return a
+    for(i in 0..n-k){
+        val m = HashSet<Int>()
+        var d = 0
+        for(j in i..(i+k-1)){
+            if(!m.contains(a[j])){
+                m.add(a[j])
+                d+=1
+            }
+        }
+        r[i] = d
+    }
+    return r
+}
+
+/**
+ * use hash table to store frequency
+ * use 2 pointer to control window.
+ */
+fun windowK3(a: IntArray, k:Int): IntArray{
+    val n = a.size
+    val r = IntArray(n-k+1)
+
+    // k = number, v = frequency
+    val t = Hashtable<Int, Int>()
+    var d = 0 // number of distinct
+    // count hash table for 1st window
+    for(i in 0..k-1){
+        // println("i=$i, a[$i]=${a[i]}")
+        if(!t.containsKey(a[i])) {
+            d += 1
+        }
+        t[a[i]] = t[a[i]]?.plus(1)?: 1
+
+        println("t=$t")
+    }
+    r[0] = d
+
+    println("d=$d, t=$t")
+    for(i in 1..n-k){
+        var j = i + k -1
+        // remove 1st one to shift window
+        if(t[a[i-1]] == 1){
+            t.remove(t[a[i-1]])
+            d-=1
+        } else {
+            t[a[i-1]] = t[a[i-1]]?.minus(1)
+        }
+
+        if(!t.containsKey(a[j])){
+            d+=1
+        }
+        t[a[j]] = t[a[j]]?.plus(1)?:1
+
+        r[i] = d
+    }
+
+    return r
 }

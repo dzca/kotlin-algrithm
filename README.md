@@ -14,6 +14,8 @@ https://www.enjoyalgorithms.com/
 
 ### logics
 - Elvis operator: m[c] = m[c]?.plus(1)?: 1
+- null or default value: val x = t[a[i]] ?:0
+  t[a[i]] = x.plus(1)
 - Regex("[^\\w]")
 - when(t){ x -> else -> }
 - println(number shr 1) // divide by 2
@@ -26,7 +28,17 @@ https://www.enjoyalgorithms.com/
 ### hashmap
 - hashmap iterator for(k in m.keys){}
 - val m = HashMap<Char, Int>()
-- 
+- m.put(key, v)
+- v = m[key]
+- m.clear()
+- m.replace("Cap" , 999)
+- m.containsKey(k)
+
+
+## hashset
+- HashSet()
+- add(e): Boolean, remove(e): Boolean, contains(e), clear()
+
 ### array 
 - for (i in 0 until j)
 - for (i in 0..j)
