@@ -46,7 +46,7 @@ https://www.enjoyalgorithms.com/
 - for(i in 1..a.size)
 - a: Array<Int>
 - val a1 = arrayOf(7,4,8,2,9)
-- Arrays.toString(a1)
+- Arrays.toString(a1), r.contentToString()
 - a.reversedArray()
 - a += item
 - val b = intArrayOf(42,2,21) init by value

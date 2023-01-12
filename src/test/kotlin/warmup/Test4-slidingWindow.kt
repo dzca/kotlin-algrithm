@@ -78,13 +78,13 @@ class M6{
 
         val r1 = intArrayOf(2,3,4,3)
         val r2 = intArrayOf(3,2,2)
-//        assertContentEquals(r1, windowK1(a1, 4))
-//        assertContentEquals(r2, windowK1(a2, 3))
-//
-//        assertContentEquals(r1, windowK2(a1, 4))
-//        assertContentEquals(r2, windowK2(a2, 3))
+        assertContentEquals(r1, windowK1(a1, 4))
+        assertContentEquals(r2, windowK1(a2, 3))
+
+        assertContentEquals(r1, windowK2(a1, 4))
+        assertContentEquals(r2, windowK2(a2, 3))
 
         assertContentEquals(r1, windowK3(a1, 4))
-//        assertContentEquals(r2, windowK3(a2, 3))
+        assertContentEquals(r2, windowK3(a2, 3))
     }
 }

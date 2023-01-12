@@ -352,29 +352,30 @@ fun windowK3(a: IntArray, k:Int): IntArray{
             d += 1
         }
         t[a[i]] = t[a[i]]?.plus(1)?: 1
-
-        println("t=$t")
     }
     r[0] = d
 
-    println("d=$d, t=$t")
+    println("r=${r.contentToString()}, t=$t")
     for(i in 1..n-k){
         var j = i + k -1
         // remove 1st one to shift window
         if(t[a[i-1]] == 1){
-            t.remove(t[a[i-1]])
+            t.remove(a[i-1])
             d-=1
-        } else {
+        }else {
             t[a[i-1]] = t[a[i-1]]?.minus(1)
         }
 
+        println("i=$i, t=$t, a[$j]=${a[j]}")
         if(!t.containsKey(a[j])){
             d+=1
         }
         t[a[j]] = t[a[j]]?.plus(1)?:1
 
         r[i] = d
-    }
 
+        println("r=${r.contentToString()}, t=$t, d=$d")
+    }
+    println("done")
     return r
 }
