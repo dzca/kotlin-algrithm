@@ -379,3 +379,132 @@ fun windowK3(a: IntArray, k:Int): IntArray{
     println("done")
     return r
 }
+
+/**
+ * Q7 max continuous of 1s
+ *
+ * find max number of consecutive 1's, if you can flip at most k 0's
+ *
+ * a = {1,0,0,1,1,0,1,0,1,1,1} k=2, r=8
+ * a = {110101001} k=1, r=4
+ */
+fun maxContinuousOnesFlip1(a: IntArray, k: Int): Int{
+    val n = a.size
+    var m = 0 // max number
+
+    for(i in 0..n-1){
+        var j = i
+        var z = k // zero counter
+
+        while(j<n){
+            if(a[j]==0){
+                if(z>0){
+                    z-=1
+                } else {
+                    break
+                }
+            }
+            j++
+        }
+        m = max(m, j-i)
+    }
+    return m
+}
+
+fun maxContinuousOnesFlip2(a: IntArray, k: Int): Int {
+    val n = a.size
+    var m = 0 // max number
+
+    var z = 0 // zero count
+    var l = 0
+    for(r in 0..n-1){
+        if(a[r]==0){
+            z++
+        }
+
+        if(z > k){
+            if(a[l]==0){
+                z--
+            }
+            l++
+        }
+        m = max(m, r-l+1)
+        println("z=$z l=$l, r=$r, m=$m")
+    }
+    return m
+}
+/**
+ * Q8 max consecutive ones
+ *
+ * a = {110111001} => 3
+ * a = {011110011} => 4
+ * a = {1111} => 4
+ * a = {00101} => 1
+ */
+fun maxContinuousOnes1(a: IntArray): Int{
+    val n = a.size
+    var m = 0
+    for(i in 0 until n){
+        var t = 0
+        if(a[i]==1){
+            for(j in i until n){
+                if(a[j]==1){
+                    t++
+                } else {
+                    break
+                }
+            }
+            m = max(m, t)
+        }
+    }
+    return m
+}
+
+/**
+ * user counter
+ */
+fun maxContinuousOnes2(a: IntArray): Int{
+    val n = a.size
+    var m = 0
+
+    var t = 0 // 1 counter
+    for(r in 0 until n){
+        if(a[r]==0) {
+            t = 0
+        } else {
+            t++
+        }
+        m = max(m, t)
+    }
+    return m
+}
+
+/**
+ * use l and r pointer
+ */
+fun maxContinuousOnes3(a: IntArray): Int {
+    val n = a.size
+    var m = 0
+
+    var l = 0
+
+    while(l < n){
+        println("l=$l")
+        if(a[l]==0){
+            l+=1
+        } else {
+            var r = l
+            while(r < n-1 && a[r+1]==1){
+                r+=1
+            }
+            println("m=$m, r=$r")
+            m = max(m, r-l+1)
+            l = r +1
+        }
+    }
+    return m
+}
+
+/**
+ * Q9 N repeated elements
+ */

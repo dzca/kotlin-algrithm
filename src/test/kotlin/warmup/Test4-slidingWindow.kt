@@ -87,4 +87,61 @@ class M6{
         assertContentEquals(r1, windowK3(a1, 4))
         assertContentEquals(r2, windowK3(a2, 3))
     }
+
+    @Test
+    fun `maxContinuousOnesFlip1`(){
+        val a1 = intArrayOf(1,0,0,1,1,0,1,0,1,1,1)
+        val a2 = intArrayOf(1,1,0,1,0,1,0,0,1)
+
+        assertEquals(8, maxContinuousOnesFlip1(a1, 2))
+        assertEquals(4, maxContinuousOnesFlip1(a2, 1))
+    }
+
+    @Test
+    fun `maxContinuousOnesFlip2`(){
+        val a1 = intArrayOf(1,0,0,1,1,0,1,0,1,1,1)
+        val a2 = intArrayOf(1,1,0,1,0,1,0,0,1)
+
+        assertEquals(8, maxContinuousOnesFlip2(a1, 2))
+        assertEquals(4, maxContinuousOnesFlip2(a2, 1))
+    }
+
+    @Test
+    fun `maxContinuousOnes1`(){
+        val a1 = intArrayOf(1,1,0,1,1,1,0,0,1)
+        val a2 = intArrayOf(0,1,1,1,1,0,0,1,1)
+        val a3 = intArrayOf(1,1,1,1)
+        val a4 = intArrayOf(0,0,1,0,1)
+
+        assertEquals(3, maxContinuousOnes1(a1))
+        assertEquals(4, maxContinuousOnes1(a2))
+        assertEquals(4, maxContinuousOnes1(a3))
+        assertEquals(1, maxContinuousOnes1(a4))
+    }
+
+    @Test
+    fun `maxContinuousOnes2`(){
+        val a1 = intArrayOf(1,1,0,1,1,1,0,0,1)
+        val a2 = intArrayOf(0,1,1,1,1,0,0,1,1)
+        val a3 = intArrayOf(1,1,1,1)
+        val a4 = intArrayOf(0,0,1,0,1)
+
+        assertEquals(3, maxContinuousOnes2(a1))
+        assertEquals(4, maxContinuousOnes2(a2))
+        assertEquals(4, maxContinuousOnes2(a3))
+        assertEquals(1, maxContinuousOnes2(a4))
+    }
+
+    @Test
+    fun `maxContinuousOnes3`(){
+        val a1 = intArrayOf(1,1,0,1,1,1,0,0,1)
+        val a2 = intArrayOf(0,1,1,1,1,0,0,1,1)
+        val a3 = intArrayOf(1,1,1,1)
+        val a4 = intArrayOf(0,0,1,0,1)
+
+        assertEquals(3, maxContinuousOnes3(a1))
+        assertEquals(4, maxContinuousOnes3(a2))
+        assertEquals(4, maxContinuousOnes3(a3))
+        assertEquals(1, maxContinuousOnes3(a4))
+    }
 }
