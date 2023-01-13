@@ -507,4 +507,32 @@ fun maxContinuousOnes3(a: IntArray): Int {
 
 /**
  * Q9 N repeated elements
+ *
+ * given an array of size 2n(n>1), there are n+1 unique elements.
+ * and exactly one item x is repeated n times. find item x
+ *
+ * example:
+ * a = {1,2,2,3} r=2
+ * a = {2,1,2,5,3,2,2,4} r=2
+ * a = {5,1,5,2,5,3,5,4,6,5} r=5
  */
+
+/**
+ * hash table
+ * f(time)=O(n) f(space)=O(n)
+ */
+fun repeatedN1(a: IntArray): Int{
+    val m = 0
+
+    return m
+}
+
+/**
+ * pigeon hole
+ * f(time)=O(n) f(space)=O(n)
+ */
+fun repeatedN2(a: IntArray): Int{
+    val m = 0
+
+    return m
+}

@@ -144,4 +144,15 @@ class M6{
         assertEquals(4, maxContinuousOnes3(a3))
         assertEquals(1, maxContinuousOnes3(a4))
     }
+
+    @Test
+    fun `repeatedN1`(){
+        val a1 = intArrayOf(1,2,2,3)
+        val a2 = intArrayOf(2,1,2,5,3,2,2,4)
+        val a3 = intArrayOf(5,1,5,2,5,3,5,4,6,5)
+
+        assertEquals(2, repeatedN1(a1))
+        assertEquals(2, repeatedN1(a2))
+        assertEquals(5, repeatedN1(a3))
+    }
 }
