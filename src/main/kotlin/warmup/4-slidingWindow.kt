@@ -523,8 +523,20 @@ fun maxContinuousOnes3(a: IntArray): Int {
  */
 fun repeatedN1(a: IntArray): Int{
     val m = 0
+    val n = a.size
+    var i = 0
 
-    return m
+    val t = WeakHashMap<Int, Int>()
+    while(i < n){
+        t[a[i]] = t[a[i]]?.plus(1)?:1
+        t[a[i]]?.let{
+            if(it > 1){
+                return a[i]
+            }
+        }
+        i+=1
+    }
+    return -1
 }
 
 /**

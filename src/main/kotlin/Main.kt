@@ -20,7 +20,7 @@ fun main(args: Array<String>) {
         it.age +=5
         it
     }
-    println("p.age=${p.toString()}")
+    println("let: p=${p}, person=$person")
     // with return value
 
     val personInfo = with (person){
@@ -30,7 +30,7 @@ fun main(args: Array<String>) {
         this
         //"I love the game of football"
     }
-    println(personInfo)
+    println("with: personInfo=$personInfo, person=$person")
    // println(personInfo +",age->"+ person.age)
 
     /////////////////////////
@@ -41,7 +41,7 @@ fun main(args: Array<String>) {
         println(age)
         "LogRocket rocks!!!"
     }
-    println("bio=$bio")
+    println("run: bio=$bio")
 
     /////////////////////////
     // apply
@@ -50,7 +50,7 @@ fun main(args: Array<String>) {
         firstName = "Li"
         age = 32
     }
-    println("li=$li")
+    println("apply: li=$li, p2=$p2")
 
     /////////////////////////
     // also
