@@ -33,6 +33,7 @@ https://www.enjoyalgorithms.com/
 - m.clear()
 - m.replace("Cap" , 999)
 - m.containsKey(k)
+- array to set: val t = a.toHashSet()
 
 
 ## hashset
@@ -44,6 +45,7 @@ https://www.enjoyalgorithms.com/
 - for (i in 0..j)
 - for (i in K downTo 0)
 - for(i in 1..a.size)
+- for(j in b.indices){
 - a: Array<Int>
 - val a1 = arrayOf(7,4,8,2,9)
 - Arrays.toString(a1), r.contentToString()
