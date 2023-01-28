@@ -19,6 +19,8 @@ https://www.enjoyalgorithms.com/
 - Regex("[^\\w]")
 - when(t){ x -> else -> }
 - println(number shr 1) // divide by 2
+- val m = Int.MAX_VALUE
+- val m = Int.MIN_VALUE
 
 ### collections
 - Length() tends to refer to contiguous elements - a string has a length for example.
@@ -28,7 +30,7 @@ https://www.enjoyalgorithms.com/
 ### hashmap
 - hashmap iterator for(k in m.keys){}
 - val m = HashMap<Char, Int>()
-- m.put(key, v)
+- m.put(key, v), m.get(key), m.remove(key)
 - v = m[key]
 - m.clear()
 - m.replace("Cap" , 999)
@@ -41,6 +43,12 @@ https://www.enjoyalgorithms.com/
 - add(e): Boolean, remove(e): Boolean, contains(e), clear()
 
 ### array 
+
+init
+=======
+    val a: Array<String>
+    val array = arrayOfNulls<String>(5)
+    val b = Array<String>(10) {i -> ""}
 - for (i in 0 until j)
 - for (i in 0..j)
 - for (i in K downTo 0)
@@ -57,10 +65,17 @@ https://www.enjoyalgorithms.com/
 - IntArray is int[], Array<Int> is Integer[]
 - val c = IntArray(k) { _ -> 0 }
 
-### stack
+### ArrayList
+- val a: ArrayList<String> = ArrayList<String>()
+- get,remove,size,
+
+### stack and queue
+
 - val stack = ArrayDeque(listOf(1, 2, 3)) // stack: [1, 2, 3]
 - stack.addLast(0)                        // stack: [1, 2, 3, 0]         (push)
 - val value = stack.removeLast()          // value: 0, stack: [1, 2, 3]  (pop)
+- s.last()
+- s. removeFirst()
 
 ### list 
 - list.size
