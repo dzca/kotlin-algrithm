@@ -23,7 +23,7 @@ class M8{
         val a3 = intArrayOf(3,4,6,10,5)
         val b3 = intArrayOf(7,11,18,15,12)
         val r3 = intArrayOf()
-        //assertEquals(49, maxArea(a1))
+
         assertContentEquals(r1, intersect1(a1, b1))
         assertContentEquals(r2, intersect1(a2, b2))
         assertContentEquals(r3, intersect1(a3, b3))
@@ -46,5 +46,29 @@ class M8{
         assertTrue { r1.toHashSet() == intersect2(a1, b1).toHashSet() }
         assertTrue { r2.toHashSet() == intersect2(a2, b2).toHashSet() }
         assertTrue { r3.toHashSet() == intersect2(a3, b3).toHashSet() }
+    }
+
+    @Test
+    fun `isSubArray1`(){
+        val a1 = intArrayOf(2,8,12,6,10,11)
+        val b1 = intArrayOf(8,2,6,11)
+
+        val a2 = intArrayOf(6,4,8,3,2)
+        val b2 = intArrayOf(4,7,3,9)
+
+        assertTrue { warmup.isSubArray1(a1, b1) }
+        assertTrue { !warmup.isSubArray1(a2, b2) }
+    }
+
+    @Test
+    fun `isSubArray2`(){
+        val a1 = intArrayOf(2,8,12,6,10,11)
+        val b1 = intArrayOf(8,2,6,11)
+
+        val a2 = intArrayOf(6,4,8,3,2)
+        val b2 = intArrayOf(4,7,3,9)
+
+        assertTrue { warmup.isSubArray2(a1, b1) }
+        assertTrue { !warmup.isSubArray2(a2, b2) }
     }
 }

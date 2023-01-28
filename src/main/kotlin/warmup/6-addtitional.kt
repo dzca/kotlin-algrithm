@@ -57,3 +57,37 @@ fun intersect2(a: IntArray, b: IntArray): IntArray{
     }
     return r.toIntArray()
 }
+
+/**
+ * Q6: check if array b is sub array of a
+ *
+ * Example:
+ * a=(2,8,12,6,10,11) b=(8,2,6,11) true
+ * a=(6,4,8,3,2) b=(4,7,3,9) false
+ */
+
+/**
+ * Hash table
+ */
+fun isSubArray1(a: IntArray, b: IntArray): Boolean{
+    val t = HashSet<Int>()
+
+    for(i in a){
+        t.add(i)
+    }
+
+    for(x in b){
+        if(!t.contains(x))
+            return false
+    }
+
+    return true
+}
+
+/**
+ * sorting and 2 pointer
+ */
+fun isSubArray2(a: IntArray, b: IntArray): Boolean{
+
+    return true
+}
