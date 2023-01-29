@@ -13,10 +13,6 @@ class TestP1{
         assertEquals(3, binarySearch(a, 5, 0, 5))
         assertEquals(-1, binarySearch(a, 6, 0, 5))
 
-//        val ax = listOf<Int>()
-//        for(i in 0..100){
-//            ax.plus(i)
-//        }
     }
 
     @Test
