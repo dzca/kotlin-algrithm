@@ -120,3 +120,48 @@ fun squareRoot(n: Int): Int{
 
     return p
 }
+
+/**
+ * A sorted array of unique integers was rotated at an unknown pivot.
+ *
+ * For example, [10, 20, 30, 40, 50] becomes [30, 40, 50, 10, 20].
+ *
+ * Find the index of the minimum element in this array.
+ *
+ * [30, 40, 50, 10, 20] => 3
+ * Explanation: the smallest element is 10 and its index is 3.
+ *
+ * [3, 5, 7, 11, 13, 17, 19, 2]=> 7
+ * Explanation: the smallest element is 2 and its index is 7.
+ */
+
+fun findMinRotated(a: Array<Int>): Int{
+    val n = a.size
+    var l = 0
+    var r = n - 1
+    var p = -1
+    while(l<=r ){
+        val m = l + (r -l)/2
+
+        if(a[m] <= a[r]) {
+            p = m
+            r = m-1
+        }
+        else{
+            l = m + 1
+        }
+    }
+
+    return p
+}
+
+/**
+ * Find the index of the peak element. Assume there is only one peak element.
+ * Example:
+ * a = (0 1 2 3 2 1 0) => 3
+ * Explanation: the largest element is 3 and its index is 3.
+ */
+fun peakOfMountain(a: Array<Int>): Int{
+
+    return 3
+}

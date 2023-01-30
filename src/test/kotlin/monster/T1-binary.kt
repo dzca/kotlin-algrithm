@@ -67,4 +67,24 @@ class TestP1 {
         assertEquals(1, squareRoot(2))
         assertEquals(1, squareRoot(3))
     }
+
+    @Test
+    fun `findMinRotated`(){
+        val a1 = arrayOf(30, 40, 50, 10, 20)
+        val a2 = arrayOf(3, 5, 7, 11, 13, 17, 19, 2)
+        val a3 = arrayOf(3, 5, 2)
+        val a4 = arrayOf(3, 5)
+
+        assertEquals(3, findMinRotated(a1))
+        assertEquals(7, findMinRotated(a2))
+        assertEquals(2, findMinRotated(a3))
+        assertEquals(0, findMinRotated(a4))
+    }
+
+    @Test
+    fun `peakOfMountain`(){
+        val a1 = arrayOf(0,1,2,3,2,1,0)
+
+        assertEquals(3, peakOfMountain(a1))
+    }
 }
