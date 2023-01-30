@@ -36,4 +36,35 @@ class TestP1 {
 
     }
 
+    @Test
+    fun `firstNoLessThan`(){
+        val a1 = arrayOf(1,3,3,5,5,8)
+        val a2 = arrayOf(1,3)
+        val a3 = arrayOf(3)
+        assertEquals(1, firstNoLessThan(a1, 3))
+
+        assertEquals(1, firstNoLessThan(a1, 2))
+        assertEquals(1, firstNoLessThan(a2, 3))
+        assertEquals(0, firstNoLessThan(a3, 3))
+    }
+    @Test
+    fun `first Match`(){
+        val a1 = arrayOf(1,3,3,5,5,8)
+        val a2 = arrayOf(1,3)
+        val a3 = arrayOf(3)
+        assertEquals(1, firstMatch(a1, 3))
+
+        assertEquals(-1, firstMatch(a1, 2))
+        assertEquals(1, firstMatch(a2, 3))
+        assertEquals(0, firstMatch(a3, 3))
+    }
+
+    @Test
+    fun `square root`(){
+        assertEquals(4, squareRoot(16))
+        assertEquals(2, squareRoot(8))
+        assertEquals(1, squareRoot(1))
+        assertEquals(1, squareRoot(2))
+        assertEquals(1, squareRoot(3))
+    }
 }
