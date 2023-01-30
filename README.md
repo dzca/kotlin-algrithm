@@ -3,14 +3,19 @@
 Project to prepare algorithm interview for android developer
 
 ## Getting started
+- main folder is the practice code
+- test folder is the test driver
 
 ### Stage 1: Warm up
-review the basic algorithm under package [warmup]
+- review the basic algorithm under package [warmup]
+- use package [practice] to practice sorting and searching
+- algorithm tutorial(https://www.enjoyalgorithms.com)
 
-## algorithm tutorial links
-https://www.enjoyalgorithms.com/
+### Stage 2: algo monster
+- follow course @ algorithm monster (https://algo.monster/)
+- do coding in package[monster]
 
-## operations
+## Kotlin language gramma
 
 ### logics
 - Elvis operator: m[c] = m[c]?.plus(1)?: 1
