@@ -163,5 +163,19 @@ fun findMinRotated(a: Array<Int>): Int{
  */
 fun peakOfMountain(a: Array<Int>): Int{
 
-    return 3
+    val n = a.size
+    var l = 0
+    var r = n - 1
+    var p = -1
+    while(l <= r){
+        val m = l + (r-l)/2
+        if(a[m]> a[m+1]){
+            p = m
+            r = m - 1
+        } else {
+            l = m + 1
+        }
+    }
+
+    return p
 }

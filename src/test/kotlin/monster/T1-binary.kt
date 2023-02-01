@@ -82,9 +82,15 @@ class TestP1 {
     }
 
     @Test
-    fun `peakOfMountain`(){
-        val a1 = arrayOf(0,1,2,3,2,1,0)
+    fun `peakOfMountain`() {
+        val a1 = arrayOf(0, 1, 2, 3, 2, 1, 0)
+        val a2 = arrayOf(0, 1, 2, 3, 4, 2, 1)
+        val a3 = arrayOf(0, 2, 1)
+        val a4 = arrayOf(0, 2, 8, 5, 4, 3, 2, 1)
 
         assertEquals(3, peakOfMountain(a1))
+        assertEquals(4, peakOfMountain(a2))
+        assertEquals(1, peakOfMountain(a3))
+        assertEquals(2, peakOfMountain(a4))
     }
 }
