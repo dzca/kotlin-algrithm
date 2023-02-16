@@ -73,6 +73,15 @@ class CardGame{
 }
 
 // enum class Size { SMALL, MEDIUM, LARGE}
+
+enum class Size(val size: Int) {
+    SMALL(1),
+    MEDIUM(2),
+    LARGE(3)
+}
+
+// val s = Size.SMALL.size
+
 class Parking(val n: Int, val ins: Array<Array<String>>){
     data class Car(
         val size: String,

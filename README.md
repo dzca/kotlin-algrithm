@@ -69,6 +69,7 @@ init
 - a.copyOfRange(0, i+1) copy sub array exclusive [0, n] 
 - IntArray is int[], Array<Int> is Integer[]
 - val c = IntArray(k) { _ -> 0 }
+- val subarray = arr.copyOfRange(start, end + 1)
 
 ### ArrayList
 - val a: ArrayList<String> = ArrayList<String>()
