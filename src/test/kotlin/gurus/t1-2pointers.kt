@@ -40,7 +40,15 @@ class Test2Pointers {
         val a1 = intArrayOf(3, 2, 3, 6, 3, 10, 9, 3)
         val a2 = intArrayOf(2, 11, 2, 2, 1)
 
-        assertEquals(4, rmKey(a1, 3))
-        assertEquals(2, rmKey(a2, 2))
+        val r1 = intArrayOf(2, 6, 10, 9)
+        val r2 = intArrayOf(11,1)
+
+        val n1 = rmKey(a1, 3)
+        val n2 = rmKey(a2, 2)
+
+        assertEquals(4, n1)
+        assertContentEquals(r1, a1.copyOfRange(0, n1))
+        assertEquals(2, n2)
+        assertContentEquals(r2, a2.copyOfRange(0, n2))
     }
 }
