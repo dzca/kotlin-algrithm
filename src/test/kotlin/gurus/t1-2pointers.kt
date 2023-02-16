@@ -51,4 +51,16 @@ class Test2Pointers {
         assertEquals(2, n2)
         assertContentEquals(r2, a2.copyOfRange(0, n2))
     }
+
+    @Test
+    fun `sort array square`(){
+        val a1 = intArrayOf(-2, -1, 0, 2, 3)
+        val a2 = intArrayOf(-3, -1, 0, 1, 2)
+
+        val r1 = intArrayOf(0, 1, 4, 4, 9)
+        val r2 = intArrayOf(0, 1, 1, 4, 9)
+
+        assertContentEquals(r1, sortArraySquare(a1))
+        assertContentEquals(r2, sortArraySquare(a2))
+    }
 }

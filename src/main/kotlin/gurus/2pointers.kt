@@ -1,5 +1,9 @@
 package gurus
 
+import java.lang.Math.pow
+import java.lang.Math.sqrt
+import kotlin.math.pow
+
 /**
  * Given an array of sorted numbers and a target sum, find
  * a pair in the array whose sum is equal to the given target.
@@ -66,4 +70,37 @@ fun rmKey(a: IntArray, k: Int): Int{
         }
     }
     return p
+}
+
+/**
+ * Given a sorted array, create a new array containing squares of all
+ * the numbers of the input array in the sorted order.
+ *
+ * Input: [-2, -1, 0, 2, 3] Output: [0, 1, 4, 4, 9]
+ * Input: [-3, -1, 0, 1, 2] Output: [0, 1, 1, 4, 9]
+ */
+
+fun sqrt(x:Int): Int{
+    return x.toDouble().pow(2.0).toInt()
+}
+fun sortArraySquare(a: IntArray): IntArray{
+    var l = 0
+    var r = a.size - 1
+    var i = a.size - 1 // highest value index in result array x
+    var x = IntArray(a.size)
+
+    while(l <= r){
+        val vl = sqrt(a[l])
+        val vr = sqrt(a[r])
+
+        if(vl > vr){
+            x[i] = vl
+            l += 1
+        } else {
+            x[i] = vr
+            r -=1
+        }
+        i-=1
+    }
+    return x
 }
