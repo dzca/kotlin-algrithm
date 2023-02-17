@@ -1,7 +1,6 @@
 package gurus
 
 import warmup.min
-import java.lang.Math.*
 import kotlin.math.pow
 
 /**

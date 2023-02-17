@@ -1,7 +1,6 @@
 package gurus
 
 import org.junit.jupiter.api.Test
-import java.util.*
 import kotlin.test.assertContentEquals
 import kotlin.test.assertEquals
 
@@ -93,4 +92,6 @@ class Test2Pointers {
         assertEquals(3, tripletSumMin(a2, 100))
         assertEquals(4, tripletSumMin(a3, 5))
     }
+
+
 }
