@@ -1,6 +1,7 @@
 package gurus
 
 import org.junit.jupiter.api.Test
+import java.util.*
 import kotlin.test.assertContentEquals
 import kotlin.test.assertEquals
 
@@ -62,5 +63,22 @@ class Test2Pointers {
 
         assertContentEquals(r1, sortArraySquare(a1))
         assertContentEquals(r2, sortArraySquare(a2))
+    }
+
+    @Test
+    fun `tripletSum`(){
+
+        val a1 = intArrayOf(-3, 0, 1, 2,1,1, -1, 1, -2)
+        val a2 = intArrayOf(-5, 2, -1, -2, 3)
+
+//        val x = tripletSum(a1)
+//        for(v in x){
+//            println(v.contentToString())
+//        }
+
+        val r1 = arrayOf(arrayOf(-3,1,2), arrayOf(-2,0,2), arrayOf(-2,1,1), arrayOf(-1,0,1))
+        val r2 = arrayOf(arrayOf(-5,2,3), arrayOf(-2,-1,3))
+
+//        println(tripletSum(a1).toArray().contentToString())
     }
 }

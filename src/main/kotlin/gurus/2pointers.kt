@@ -104,3 +104,58 @@ fun sortArraySquare(a: IntArray): IntArray{
     }
     return x
 }
+
+/**
+ * Given an array of unsorted numbers, find all unique triplets in it that
+ * add up to zero.
+ *
+ * Input: [-3, 0, 1, 2, -1, 1, -2]
+ * Output: [[-3, 1, 2], [-2, 0, 2], [-2, 1, 1], [-1, 0, 1]]
+ *
+ * Input: [-5, 2, -1, -2, 3]
+ * Output: [[-5, 2, 3], [-2, -1, 3]]
+ */
+
+fun tripletSum(a: IntArray): ArrayList<IntArray>{
+    val n = a.size - 1
+    // -3,-2,-1,0,1,1,2
+    val r = ArrayList<IntArray>()
+
+    a.sort()
+    for(i in 0..n){
+        if(i>0 && a[i-1] == a[i])
+            continue
+        else {
+            findPair(a, i, -a[i], r)
+        }
+    }
+
+    return r
+}
+
+/**
+ * find 2 elements x,y in array a (i..n), that sum(x,y)==v
+ *  and put it into the result array r
+ */
+fun findPair(a: IntArray, i: Int, d: Int, list: ArrayList<IntArray>){
+    var l = i + 1
+    var r = a.size - 1
+    // -3,-2,-1,0,1,1,2
+    while(l< r){
+        val v = a[l] + a[r]
+        if(v == d){
+            list.add(intArrayOf(a[i], a[l], a[r]))
+            l+=1
+            r-=1
+            // the next one could be a duplicate
+            while(l < r && a[l] == a[l -1])
+                l+=1
+            while(l<r && a[r] == a[r + 1])
+                r-=1
+        } else if( v > d){
+            r-=1
+        } else {
+            l+=1
+        }
+    }
+}
