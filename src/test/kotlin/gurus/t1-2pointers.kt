@@ -71,14 +71,26 @@ class Test2Pointers {
         val a1 = intArrayOf(-3, 0, 1, 2,1,1, -1, 1, -2)
         val a2 = intArrayOf(-5, 2, -1, -2, 3)
 
-//        val x = tripletSum(a1)
-//        for(v in x){
-//            println(v.contentToString())
-//        }
+        val x = tripletSum(a1)
+        for(v in x){
+            println(v.contentToString())
+        }
 
         val r1 = arrayOf(arrayOf(-3,1,2), arrayOf(-2,0,2), arrayOf(-2,1,1), arrayOf(-1,0,1))
         val r2 = arrayOf(arrayOf(-5,2,3), arrayOf(-2,-1,3))
 
 //        println(tripletSum(a1).toArray().contentToString())
+    }
+
+    @Test
+    fun `test tripletSumMin`(){
+
+        val a1 = intArrayOf(-2, 0, 1, 2)
+        val a2 = intArrayOf(1, 0, 1, 1)
+        val a3 = intArrayOf(0, 0, 1, 1, 2, 6)
+
+        assertEquals(1, tripletSumMin(a1, 2))
+        assertEquals(3, tripletSumMin(a2, 100))
+        assertEquals(4, tripletSumMin(a3, 5))
     }
 }

@@ -1,7 +1,7 @@
 package gurus
 
-import java.lang.Math.pow
-import java.lang.Math.sqrt
+import warmup.min
+import java.lang.Math.*
 import kotlin.math.pow
 
 /**
@@ -122,7 +122,7 @@ fun tripletSum(a: IntArray): ArrayList<IntArray>{
     val r = ArrayList<IntArray>()
 
     a.sort()
-    for(i in 0..n){
+    for(i in 0 until n){
         if(i>0 && a[i-1] == a[i])
             continue
         else {
@@ -159,3 +159,45 @@ fun findPair(a: IntArray, i: Int, d: Int, list: ArrayList<IntArray>){
         }
     }
 }
+
+/**
+ * Given an array of unsorted numbers and a target number, find a triplet
+ * in the array whose sum is as close to the target number as possible,
+ * return the sum of the triplet. If there are more than one such triplet,
+ * return the sum of the triplet with the smallest sum.
+ *
+ * Input: [-2, 0, 1, 2], target=2 Output: 1
+ * Explanation: The triplet [-2, 1, 2] has the closest sum to the target.
+ *
+ * Input: [1, 0, 1, 1], target=100 Output: 3
+ * Explanation: The triplet [1, 1, 1] has the closest sum to the target.
+ *
+ * Input: [0, 0, 1, 1, 2, 6], target=5 Output: 4
+ */
+
+fun tripletSumMin(a: IntArray, t: Int): Int{
+    val n = a.size - 1
+    a.sort()
+    var s = Int.MAX_VALUE
+    for(i in 0 until n){
+        // findtripletSumMin
+        var l = i + 1
+        var r = n
+        var d = t - a[i] - a[l] - a[r]
+
+        while( l < r){
+            if(d == 0) return t
+
+            // handle the smallest sum when we have more than one solution
+            s = min(s, kotlin.math.abs(d))
+
+            if(d > 0) {
+                l+=1 // dec d
+            } else {
+                r-=1 // inc d
+            }
+        }
+    }
+    return t - s
+}
+
