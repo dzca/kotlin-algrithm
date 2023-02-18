@@ -60,4 +60,79 @@ class LinkedList<T>(a: Array<T>){
         }
         return false
     }
+
+    fun findCycleSize(): Int{
+        var fast = head
+        var slow = head
+
+        while(fast?.next != null){
+            fast = fast?.next?.next
+            slow = slow?.next
+
+            if (slow == fast)
+                return countCycleSize(slow)
+        }
+        return 0
+    }
+
+    private fun countCycleSize(start: ListNode<T>?): Int{
+        var c = 0
+        var p = start
+        do {
+            p = p?.next!!
+            c++
+        } while (p != start)
+        return c
+    }
+    /**
+     * Given the head of a Singly LinkedList, write a method to
+     * return the middle node of the LinkedList.
+     * If the total number of nodes in the LinkedList is even,
+     * return the second middle node.
+     */
+    fun findMiddle(): ListNode<T>?{
+        var fast = head
+        var slow = head
+        while(fast?.next != null){
+            fast = fast?.next?.next
+            slow = slow?.next
+        }
+        return slow
+    }
+
+    /**
+     * Given the head of a Singly LinkedList that contains a cycle,
+     * write a function to find the starting node of the cycle.
+     */
+    fun findCycleStart(): ListNode<T>?{
+
+        val k = findCycleSize()
+        var p1 = head
+        var p2 = move(head, k)
+
+        while(p1 != p2){
+            p1 = p1?.next
+            p2 = p2?.next
+        }
+
+        return p1
+    }
+
+    /**
+     * find next k nodes from node p
+     */
+    fun move(s: ListNode<T>?, k: Int): ListNode<T>?{
+        var p = s
+        for(i in 1..k){
+            p = p!!.next
+        }
+        return p
+    }
+}
+
+/**
+ * TODO: happy number
+ */
+fun happyNumber(v: Int) : Boolean {
+    return true
 }
