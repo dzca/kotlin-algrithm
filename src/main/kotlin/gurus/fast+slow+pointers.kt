@@ -131,8 +131,28 @@ class LinkedList<T>(a: Array<T>){
 }
 
 /**
- * TODO: happy number
+ * happy number
  */
 fun happyNumber(v: Int) : Boolean {
-    return true
+    // p1 - slow pointer, p2 - faster pointer
+    var p1 = v
+    var p2 = v
+
+    do {
+        p1 = squareSum(p1)
+        p2 = squareSum(squareSum(p2))
+    } while(p1!=p2)
+
+    return p1 == 1
+}
+
+fun squareSum(v: Int): Int{
+    var s = 0
+    var n = v
+    while(n > 0){
+        val x = n % 10
+        s += (x * x)
+        n /= 10
+    }
+    return s
 }

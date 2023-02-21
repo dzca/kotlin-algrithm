@@ -55,4 +55,17 @@ class TestFastSlowPointers {
 
         assertEquals(3, l2.findCycleStart()?.v)
     }
+
+    @Test
+    fun `square sum`(){
+        var v = 23
+        assertEquals(13, squareSum(v))
+    }
+    @Test
+    fun `happy number`(){
+        var v1 = 23
+        var v2 = 12
+        assertTrue(happyNumber(v1))
+        assertFalse(happyNumber(v2))
+    }
 }
